@@ -1,0 +1,43 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ntfy
+
+commonAnnotations:
+  repo: https://github.com/charlesthomas/homelab-ntfy.sh
+commonLabels:
+  app: ntfy
+
+resources:
+- resources/deployments.yaml
+- resources/ingresses.yaml
+- resources/namespaces.yaml
+- resources/service-accounts.yaml
+- resources/services.yaml
+patches:
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: all
+      namespace: ntfy
+      annotations:
+        reloader.stakater.com/auto: "true"
+  target:
+    kind: Deployment
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: ntfy
+      namespace: ntfy
+      annotations:
+        gethomepage.dev/href: https://ping.crt.lol
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: Notification Sender
+        gethomepage.dev/group: Web
+        gethomepage.dev/icon: ntfy.sh
+        gethomepage.dev/name: ntfy.sh
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress
