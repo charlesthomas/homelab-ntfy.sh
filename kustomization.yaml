@@ -36,7 +36,7 @@ patches:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/description: Notification Sender
         gethomepage.dev/group: Web
-        gethomepage.dev/icon: ntfy.sh
+        gethomepage.dev/icon: ntfy
         gethomepage.dev/name: ntfy.sh
         gethomepage.dev/pod-selector: ""
   target:
