@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ntfy
+  annotations:
+      external-dns.alpha.kubernetes.io/hostname: ping.crt.lol
+      external-dns.alpha.kubernetes.io/target: crt.lol
+  labels:
+    app.kubernetes.io/name: ntfy
+spec:
+  ingressClassName: nginx-external
+  rules:
+    - host: "ping.crt.lol"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ntfy
+                port:
+                  number: 80
+  tls:
+    - hosts:
+      - "ping.crt.lol"

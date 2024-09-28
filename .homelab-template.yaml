@@ -6,7 +6,7 @@ helm: false
 homepageDescription: Notification Sender
 homepageEnabled: true
 homepageGroup: Web
-homepageIcon: ntfy.sh
+homepageIcon: ntfy
 homepageName: ntfy.sh
 ingHost: ping.crt.lol
 ingName: ntfy

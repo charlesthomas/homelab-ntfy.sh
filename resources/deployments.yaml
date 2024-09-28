@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ntfy
+  labels:
+    app.kubernetes.io/name: ntfy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ntfy
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ntfy
+    spec:
+      serviceAccountName: ntfy
+      containers:
+        - name: ntfy
+          image: "binwiederhier/ntfy:v2.6.2"
+          imagePullPolicy: IfNotPresent
+          args: ["serve"]
+          volumeMounts:
+            - mountPath: /var/cache/ntfy
+              name: ntfy
+            - mountPath: /etc/ntfy/server.yml
+              name: ntfy-conf
+              subPath: server.yml
+              readOnly: true
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /v1/health
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /v1/health
+              port: 80
+      volumes:
+        - name: ntfy-conf
+          configMap:
+            name: ntfy
+        - name: ntfy
+          emptyDir: {}
