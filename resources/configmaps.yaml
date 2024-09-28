@@ -12,3 +12,4 @@ data:
     base-url: https://ping.crt.lol
     behind-proxy: true
     cache-file: /var/cache/ntfy/cache.db
+    upstream-base-url: https://ntfy.sh
