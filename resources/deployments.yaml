@@ -48,4 +48,5 @@ spec:
           configMap:
             name: ntfy
         - name: ntfy
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: ntfy

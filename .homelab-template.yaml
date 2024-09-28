@@ -20,6 +20,7 @@ resources:
 - configmaps.yaml
 - deployments.yaml
 - ingresses.yaml
+- pvcs.yaml
 - service-accounts.yaml
 - services.yaml
 service: false
