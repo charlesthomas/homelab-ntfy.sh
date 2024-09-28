@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ntfy
+  namespace: ntfy
 data:
   server.yml: |
     attachment-cache-dir: /var/cache/ntfy/attachments

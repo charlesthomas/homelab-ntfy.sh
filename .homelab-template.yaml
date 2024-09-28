@@ -17,6 +17,7 @@ namespace: ntfy
 pvc: false
 reloader: true
 resources:
+- configmaps.yaml
 - deployments.yaml
 - ingresses.yaml
 - service-accounts.yaml
