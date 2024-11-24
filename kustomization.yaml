@@ -37,7 +37,7 @@ patches:
         gethomepage.dev/href: https://ping.crt.lol
         gethomepage.dev/enabled: "true"
         gethomepage.dev/description: Notification Sender
-        gethomepage.dev/group: Web
+        gethomepage.dev/group: Tools
         gethomepage.dev/icon: ntfy
         gethomepage.dev/name: ntfy.sh
         gethomepage.dev/pod-selector: ""

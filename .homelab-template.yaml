@@ -5,7 +5,7 @@ backups: false
 helm: false
 homepageDescription: Notification Sender
 homepageEnabled: true
-homepageGroup: Web
+homepageGroup: Tools
 homepageIcon: ntfy
 homepageName: ntfy.sh
 ingHost: ping.crt.lol
