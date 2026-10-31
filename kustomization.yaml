@@ -5,8 +5,10 @@ namespace: ntfy
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-ntfy.sh
-commonLabels:
-  app: ntfy
+labels:
+- includeSelectors: true
+  pairs:
+    app: ntfy
 
 resources:
 - resources/configmaps.yaml
@@ -43,3 +45,11 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+configMapGenerator:
+- name: grafana-dashboard-ntfy.sh
+  files:
+  - grafana/ntfy.sh.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
