@@ -5,8 +5,10 @@ namespace: ntfy
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-ntfy.sh
-commonLabels:
-  app: ntfy
+labels:
+- includeSelectors: true
+  pairs:
+    app: ntfy
 
 resources:
 - resources/configmaps.yaml
